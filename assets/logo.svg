@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <!-- Gradient Background -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A237E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow Effect -->
+    <filter id="glowEffect">
+      <feGaussianBlur class="blurValues" stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Clip Path for Futuristic Frame -->
+    <clipPath id="frameClip">
+      <path d="M50 50 
+               Q150 20, 250 50 
+               L250 250 
+               Q150 280, 50 250 
+               Z" />
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" fill="url(#logoGradient)" />
+  
+  <!-- Futuristic Circuit/Network Layer -->
+  <g stroke="#64FFDA" stroke-width="1" opacity="0.3">
+    <path d="M50 100 Q150 50, 250 100" fill="none" />
+    <path d="M50 200 Q150 250, 250 200" fill="none" />
+    <circle cx="50" cy="100" r="5" fill="#64FFDA" />
+    <circle cx="250" cy="100" r="5" fill="#64FFDA" />
+    <circle cx="50" cy="200" r="5" fill="#64FFDA" />
+    <circle cx="250" cy="200" r="5" fill="#64FFDA" />
+  </g>
+  
+  <!-- Central Prediction Concept -->
+  <g transform="translate(150 150)" filter="url(#glowEffect)">
+    <!-- Branching Paths Representation -->
+    <path 
+      d="M0 -100 
+         Q50 -50, 0 0 
+         Q-50 50, 0 100" 
+      fill="none" 
+      stroke="#64FFDA" 
+      stroke-width="3"
+      opacity="0.7"
+    />
+    
+    <!-- Central Text -->
+    <text 
+      x="0" 
+      y="20" 
+      text-anchor="middle" 
+      font-family="monospace" 
+      font-size="40" 
+      font-weight="bold" 
+      fill="#64FFDA"
+    >
+      INV
+    </text>
+  </g>
+  
+  <!-- Floating Data Elements -->
+  <g fill="#64FFDA" opacity="0.5">
+    <circle cx="100" cy="50" r="8" />
+    <circle cx="200" cy="250" r="6" />
+    <rect x="50" y="250" width="10" height="10" transform="rotate(-45 55 255)" />
+  </g>
+</svg> 
