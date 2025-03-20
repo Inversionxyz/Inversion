@@ -1,33 +1,49 @@
 {
-  "name": "inversion",
-  "version": "1.0.0",
+  "name": "inversion-ai",
+  "version": "1.0.1",
   "description": "AI-driven future simulation system with blockchain integration",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:backend": "nodemon backend/server.js",
+    "build": "cd frontend && npm run build",
     "test": "jest",
-    "build": "webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "web3": "^1.9.0",
-    "axios": "^1.4.0",
-    "express": "^4.18.2",
-    "mongoose": "^7.3.1",
-    "tensorflow": "^3.0.0",
-    "openai": "^4.0.0"
-  },
+  "keywords": [
+    "ai",
+    "blockchain",
+    "predictions",
+    "future-simulation"
+  ],
+  "author": "",
+  "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-react": "^7.22.0",
-    "babel-loader": "^9.1.2",
-    "webpack": "^5.85.0",
-    "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0",
-    "jest": "^29.5.0"
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "lint-staged": "^13.2.1",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4"
   },
-  "author": "Inversion_Ai",
-  "license": "MIT"
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
 } 
